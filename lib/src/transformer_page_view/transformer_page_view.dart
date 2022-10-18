@@ -584,7 +584,13 @@ class _TransformerPageViewState extends State<TransformerPageView> {
             )
             .whenComplete(event.complete);
       } else {
-        event.complete();
+        _pageController
+            .animateToPage(
+              index,
+              duration: Duration(milliseconds: 1),
+              curve: widget.curve,
+            )
+            .whenComplete(event.complete);
       }
     } else {
       event.complete();
